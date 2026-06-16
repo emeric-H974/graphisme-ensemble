@@ -43,7 +43,9 @@ Déployé sur Netlify, repo GitHub : https://github.com/emeric-H974/graphisme-en
 - [ ] **Photos** : tous les blocs gris sont des placeholders (hero, galerie, équipe, qui sommes-nous)
   → remplacer par les vraies photos de l'association
 - [ ] **Équipe** : noms fictifs (Marie D., Karim L., Sophie M., Thomas R.) dans "Qui sommes-nous"
-  → remplacer par les vrais membres
+  → remplacer par les vrais membres (ou anonymiser avec juste les rôles)
+- [ ] **Photos équipe** : cercles gris à remplacer par des images générées "personne incognito"
+  → l'utilisateur s'en charge (génération externe)
 - [ ] **Galerie** : 9 projets fictifs avec fonds gris → remplacer par les vraies réalisations
 - [ ] **SIREN** : non applicable pour l'instant (pas d'activité commerciale/salariés)
   → à ajouter si l'association embauche ou développe des activités économiques
