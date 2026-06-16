@@ -28,16 +28,20 @@
     .nav-link { font-size: 14px; font-weight: 600; color: #1C1C1E; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .nav-underline { display: block; height: 2px; width: 100%; background: #F2C20D; border-radius: 1px; opacity: 0; }
     .nav-link.active .nav-underline { opacity: 1; }
-    .btn-don { flex: none; font-size: 13px; font-weight: 800; color: #1C1C1E; background: #F2C20D; padding: 13px 24px; border-radius: 999px; cursor: pointer; transition: background .15s; }
-    .btn-don:hover { background: #e0b20c; }
+    .btn-don { flex: none; font-size: 13px; font-weight: 800; color: #1C1C1E; background: #F2C20D; padding: 13px 24px; border-radius: 999px; cursor: pointer; transition: background .2s, transform .2s, box-shadow .2s; }
+    .btn-don:hover { background: #e0b20c; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(242,194,13,.35); }
+    .btn-don:active { transform: translateY(0); box-shadow: none; }
 
     /* Buttons */
-    .btn-primary { display: inline-block; font-size: 14px; font-weight: 800; color: #1C1C1E; background: #F2C20D; padding: 16px 32px; border-radius: 999px; cursor: pointer; border: none; font-family: inherit; transition: background .15s; }
-    .btn-primary:hover { background: #e0b20c; }
-    .btn-secondary { display: inline-block; font-size: 14px; font-weight: 700; color: #fff; background: none; border: 1.5px solid #3A3A3E; padding: 16px 32px; border-radius: 999px; cursor: pointer; font-family: inherit; transition: border-color .15s; }
-    .btn-secondary:hover { border-color: #6A6A6E; }
-    .btn-outline { display: inline-block; font-size: 14px; font-weight: 700; color: #1C1C1E; background: none; border: 1.5px solid #E8E8EA; padding: 15px 36px; border-radius: 999px; cursor: pointer; font-family: inherit; transition: border-color .15s; }
-    .btn-outline:hover { border-color: #1C1C1E; }
+    .btn-primary { display: inline-block; font-size: 14px; font-weight: 800; color: #1C1C1E; background: #F2C20D; padding: 16px 32px; border-radius: 999px; cursor: pointer; border: none; font-family: inherit; transition: background .2s, transform .2s, box-shadow .2s; }
+    .btn-primary:hover { background: #e0b20c; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(242,194,13,.35); }
+    .btn-primary:active { transform: translateY(0); box-shadow: none; }
+    .btn-secondary { display: inline-block; font-size: 14px; font-weight: 700; color: #fff; background: none; border: 1.5px solid #3A3A3E; padding: 16px 32px; border-radius: 999px; cursor: pointer; font-family: inherit; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .btn-secondary:hover { border-color: #6A6A6E; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-secondary:active { transform: translateY(0); box-shadow: none; }
+    .btn-outline { display: inline-block; font-size: 14px; font-weight: 700; color: #1C1C1E; background: none; border: 1.5px solid #E8E8EA; padding: 15px 36px; border-radius: 999px; cursor: pointer; font-family: inherit; transition: border-color .2s, transform .2s, box-shadow .2s; }
+    .btn-outline:hover { border-color: #1C1C1E; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
+    .btn-outline:active { transform: translateY(0); box-shadow: none; }
     .text-link { font-size: 14px; font-weight: 700; cursor: pointer; border-bottom: 2px solid #F2C20D; padding-bottom: 3px; color: #1C1C1E; font-family: inherit; transition: opacity .15s; }
     .text-link:hover { opacity: .7; }
 
