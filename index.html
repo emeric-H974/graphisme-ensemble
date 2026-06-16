@@ -270,7 +270,7 @@
       <div>
         <span class="tag" style="margin-bottom:16px;">QUI SOMMES-NOUS</span>
         <h1 style="margin:0 0 24px;font-weight:900;font-size:52px;line-height:1.05;letter-spacing:-.02em;">Une association au service du graphisme pour tous.</h1>
-        <p style="margin:0;font-size:17px;line-height:1.75;color:#5C5A56;max-width:480px;">Fondée en 2018, Graphisme Ensemble est une association loi 1901 basée en Île-de-France. Notre équipe de bénévoles et de graphistes professionnel·les œuvre chaque jour pour rendre les arts graphiques accessibles à toutes et tous.</p>
+        <p style="margin:0;font-size:17px;line-height:1.75;color:#5C5A56;max-width:480px;">Fondée en 2024, Graphisme Ensemble est une association loi 1901 basée à La Réunion. Notre équipe de bénévoles et de graphistes professionnel·les œuvre chaque jour pour rendre les arts graphiques accessibles à toutes et tous.</p>
       </div>
       <div style="height:420px;background:#DCDCE0;border-radius:24px;display:flex;align-items:center;justify-content:center;">
         <span style="font-family:'Caveat',cursive;font-size:20px;color:#AEAEB2;">photo — équipe / atelier</span>
@@ -293,17 +293,37 @@
       <h2 style="margin:0 0 52px;font-weight:900;font-size:40px;letter-spacing:-.015em;">Ce en quoi nous croyons</h2>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" class="three-col">
         <div class="card">
-          <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;"></div>
+          <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#F2C20D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10" cy="10.5" r="6"/>
+              <path d="M14.8 14.8L24 24"/>
+              <path d="M20 19l-2.5 2.5"/>
+              <path d="M22 21l-2.5 2.5"/>
+            </svg>
+          </div>
           <h3 style="margin:0 0 12px;font-weight:800;font-size:20px;">Accessibilité</h3>
           <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Tous nos ateliers sont gratuits et ouverts sans condition de niveau. Nous agissons là où les ressources culturelles manquent.</p>
         </div>
         <div class="card">
-          <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;"></div>
+          <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#F2C20D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="14" cy="7" r="3.5"/>
+              <path d="M7.5 24c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5"/>
+              <circle cx="5" cy="9.5" r="2.5"/>
+              <path d="M1 24c0-2.76 1.79-5 4-5"/>
+              <circle cx="23" cy="9.5" r="2.5"/>
+              <path d="M27 24c0-2.76-1.79-5-4-5"/>
+            </svg>
+          </div>
           <h3 style="margin:0 0 12px;font-weight:800;font-size:20px;">Créativité collective</h3>
           <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Nous croyons en la force du faire ensemble. Chaque projet naît d'une collaboration entre participant·es, bénévoles et partenaires.</p>
         </div>
         <div class="card">
-          <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;"></div>
+          <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;display:flex;align-items:center;justify-content:center;">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="#F2C20D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 24.5C14 24.5 2 17 2 9.5C2 6.46 4.46 4 7.5 4C9.24 4 10.79 4.82 11.84 6.1L14 8.5L16.16 6.1C17.21 4.82 18.76 4 20.5 4C23.54 4 26 6.46 26 9.5C26 17 14 24.5 14 24.5Z"/>
+            </svg>
+          </div>
           <h3 style="margin:0 0 12px;font-weight:800;font-size:20px;">Impact social</h3>
           <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Le graphisme est un outil d'émancipation. Nous mesurons notre réussite à la capacité de chacun·e à prendre la parole visuellement.</p>
         </div>
@@ -584,7 +604,7 @@
         <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:18px;padding:24px;">
           <div style="margin:0 0 8px;font-weight:700;font-size:15px;">Vous souhaitez adhérer ?</div>
           <p style="margin:0 0 14px;font-size:14px;color:#5C5A56;line-height:1.65;">L'adhésion annuelle est libre de 10 à 30 €. Précisez-le dans votre message et nous vous envoyons le bulletin.</p>
-          <span class="text-link" style="font-size:13px;">En savoir plus →</span>
+          <button class="text-link" style="font-size:13px;" onclick="document.getElementById('nom').focus(); window.scrollTo({top:0, behavior:'smooth'});">Remplir le formulaire →</button>
         </div>
       </div>
     </div>
