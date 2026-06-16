@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Caveat:wght@500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#E7E7EA;font-family:'Archivo',system-ui,sans-serif;color:#2B2B2E;">
+
+  <!-- ====== SHELL HEADER ====== -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(231,231,234,0.92);backdrop-filter:blur(8px);border-bottom:1px solid #D2D2D6;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:baseline;gap:12px;">
+      <span style="font-weight:900;font-size:16px;letter-spacing:-0.01em;">Graphisme&nbsp;Ensemble</span>
+      <span style="font-family:'Caveat',cursive;font-size:18px;color:#8A8A8F;">wireframes · page d'accueil</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #D4D4D8;border-radius:999px;padding:5px;">
+      <sc-if value="{{ isA }}" hint-placeholder-val="{{ true }}"><button style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:#1C1C1E;color:#fff;">A · Audacieux</button></sc-if>
+      <sc-if value="{{ notA }}"><button onClick="{{ selA }}" style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:transparent;color:#5A5A5E;">A · Audacieux</button></sc-if>
+      <sc-if value="{{ isB }}"><button style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:#1C1C1E;color:#fff;">B · Chaleureux</button></sc-if>
+      <sc-if value="{{ notB }}" hint-placeholder-val="{{ true }}"><button onClick="{{ selB }}" style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:transparent;color:#5A5A5E;">B · Chaleureux</button></sc-if>
+      <sc-if value="{{ isC }}"><button style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:#1C1C1E;color:#fff;">C · Arty / éditorial</button></sc-if>
+      <sc-if value="{{ notC }}" hint-placeholder-val="{{ true }}"><button onClick="{{ selC }}" style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:transparent;color:#5A5A5E;">C · Arty / éditorial</button></sc-if>
+      <sc-if value="{{ isM }}"><button style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:#F2C20D;color:#1C1C1E;">M · Mélange A+B</button></sc-if>
+      <sc-if value="{{ notM }}"><button onClick="{{ selM }}" style="border:none;cursor:pointer;font-family:'Archivo',sans-serif;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;background:transparent;color:#5A5A5E;">M · Mélange A+B</button></sc-if>
+    </div>
+  </header>
+
+  <!-- ====== DESCRIPTOR ====== -->
+  <div style="max-width:1320px;margin:0 auto;padding:22px 28px 6px;display:flex;align-items:flex-start;gap:14px;">
+    <span style="flex:none;margin-top:2px;width:9px;height:9px;border-radius:999px;background:#F2C20D;box-shadow:0 0 0 4px rgba(242,194,13,0.22);"></span>
+    <p style="margin:0;font-size:15px;line-height:1.5;color:#5A5A5E;max-width:760px;">{{ desc }}</p>
+  </div>
+
+  <!-- ====== BROWSER FRAME ====== -->
+  <div style="max-width:1320px;margin:0 auto;padding:14px 28px 64px;">
+    <div style="border-radius:16px;overflow:hidden;border:1px solid #D2D2D6;box-shadow:0 30px 60px -28px rgba(0,0,0,0.35);background:#fff;">
+      <!-- browser chrome -->
+      <div style="display:flex;align-items:center;gap:14px;padding:11px 16px;background:#F4F4F6;border-bottom:1px solid #E2E2E6;">
+        <div style="display:flex;gap:7px;">
+          <span style="width:11px;height:11px;border-radius:999px;background:#D6D6DA;"></span>
+          <span style="width:11px;height:11px;border-radius:999px;background:#D6D6DA;"></span>
+          <span style="width:11px;height:11px;border-radius:999px;background:#D6D6DA;"></span>
+        </div>
+        <div style="flex:1;max-width:420px;height:24px;border-radius:999px;background:#E7E7EA;display:flex;align-items:center;padding:0 14px;font-size:12px;color:#9A9A9F;">graphisme-ensemble.org</div>
+      </div>
+
+      <!-- ============================================================ -->
+      <!-- DIRECTION A — AUDACIEUX & GRAPHIQUE                          -->
+      <!-- ============================================================ -->
+      <sc-if value="{{ isA }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;">
+
+        <!-- nav -->
+        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid #EDEDEF;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'Archivo';font-weight:900;font-size:30px;line-height:1;color:#F2C20D;">G</span>
+            <span style="font-weight:800;font-size:15px;letter-spacing:0.04em;">GRAPHISME ENSEMBLE</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:30px;">
+            <span style="font-size:14px;font-weight:600;color:#3A3A3E;">Qui sommes-nous</span>
+            <span style="font-size:14px;font-weight:600;color:#3A3A3E;">Galerie</span>
+            <span style="font-size:14px;font-weight:600;color:#3A3A3E;">Contact</span>
+            <span style="font-size:13px;font-weight:800;letter-spacing:0.04em;color:#1C1C1E;background:#F2C20D;padding:11px 20px;border-radius:999px;">FAIRE UN DON</span>
+          </div>
+        </div>
+
+        <!-- hero (dark) -->
+        <div style="position:relative;background:#1C1C1E;color:#fff;padding:84px 48px 92px;display:grid;grid-template-columns:1.15fr 0.85fr;gap:54px;align-items:center;overflow:hidden;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#6A6A6E;">❶ Hero — accroche massive</span>
+          <div>
+            <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:22px;">ASSOCIATION LOI 1901</span>
+            <h1 style="margin:0;font-weight:900;font-size:62px;line-height:0.98;letter-spacing:-0.02em;">Le graphisme,<br>un bien <span style="color:#F2C20D;">commun.</span></h1>
+            <div style="display:flex;flex-direction:column;gap:11px;margin:30px 0 36px;max-width:440px;">
+              <div style="height:12px;border-radius:5px;background:#3A3A3E;width:100%;"></div>
+              <div style="height:12px;border-radius:5px;background:#3A3A3E;width:88%;"></div>
+              <div style="height:12px;border-radius:5px;background:#3A3A3E;width:64%;"></div>
+            </div>
+            <div style="display:flex;gap:14px;">
+              <span style="font-size:14px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:15px 28px;border-radius:999px;">Soutenir l'association</span>
+              <span style="font-size:14px;font-weight:700;color:#fff;border:1px solid #4A4A4E;padding:15px 28px;border-radius:999px;">Découvrir nos projets</span>
+            </div>
+          </div>
+          <div style="position:relative;aspect-ratio:1/1;border-radius:18px;background:#2A2A2D;border:1px dashed #4A4A4E;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Archivo';font-weight:900;font-size:200px;line-height:1;color:#3A3A3E;">G</span>
+            <span style="position:absolute;bottom:16px;font-family:'Caveat',cursive;font-size:18px;color:#7A7A7E;">visuel / illustration</span>
+          </div>
+        </div>
+
+        <!-- manifeste strip -->
+        <div style="position:relative;padding:64px 48px;border-bottom:1px solid #EDEDEF;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#B6B6BB;">❷ Manifeste</span>
+          <p style="margin:0;font-weight:800;font-size:34px;line-height:1.25;letter-spacing:-0.01em;max-width:980px;">Nous rendons les arts graphiques, le design visuel et l'illustration <span style="background:#F2C20D;padding:0 6px;">accessibles à tous</span>, comme leviers de lien social et d'expression citoyenne.</p>
+        </div>
+
+        <!-- 3 colonnes -->
+        <div style="position:relative;padding:64px 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;border-bottom:1px solid #EDEDEF;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#B6B6BB;">❸ Ce que nous faisons</span>
+          <div>
+            <div style="font-family:'Archivo';font-weight:900;font-size:30px;color:#F2C20D;margin-bottom:12px;">01</div>
+            <div style="font-weight:800;font-size:20px;margin-bottom:14px;">Ateliers créatifs</div>
+            <div style="display:flex;flex-direction:column;gap:9px;">
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:100%;"></div>
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:92%;"></div>
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:70%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Archivo';font-weight:900;font-size:30px;color:#F2C20D;margin-bottom:12px;">02</div>
+            <div style="font-weight:800;font-size:20px;margin-bottom:14px;">Projets collaboratifs</div>
+            <div style="display:flex;flex-direction:column;gap:9px;">
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:100%;"></div>
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:84%;"></div>
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:66%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Archivo';font-weight:900;font-size:30px;color:#F2C20D;margin-bottom:12px;">03</div>
+            <div style="font-weight:800;font-size:20px;margin-bottom:14px;">Ressources pédagogiques</div>
+            <div style="display:flex;flex-direction:column;gap:9px;">
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:100%;"></div>
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:90%;"></div>
+              <div style="height:10px;border-radius:4px;background:#DEDEE2;width:58%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- galerie mosaïque -->
+        <div style="position:relative;padding:64px 48px;border-bottom:1px solid #EDEDEF;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#B6B6BB;">❹ Galerie — mosaïque asymétrique</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;">
+            <h2 style="margin:0;font-weight:900;font-size:34px;letter-spacing:-0.01em;">Réalisations</h2>
+            <span style="font-size:14px;font-weight:700;color:#1C1C1E;border-bottom:2px solid #F2C20D;padding-bottom:2px;">Voir la galerie →</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:16px;">
+            <div style="grid-row:span 2;background:#DCDCE0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;color:#9A9A9F;font-size:20px;">image</div>
+            <div style="background:#DCDCE0;border-radius:12px;"></div>
+            <div style="background:#DCDCE0;border-radius:12px;"></div>
+            <div style="background:#DCDCE0;border-radius:12px;"></div>
+            <div style="background:#DCDCE0;border-radius:12px;"></div>
+          </div>
+        </div>
+
+        <!-- don band -->
+        <div style="position:relative;background:#1C1C1E;color:#fff;padding:72px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#6A6A6E;">❺ Appel au don</span>
+          <div>
+            <h2 style="margin:0 0 14px;font-weight:900;font-size:40px;letter-spacing:-0.01em;">Chaque don ouvre<br>un atelier.</h2>
+            <div style="height:11px;border-radius:5px;background:#3A3A3E;width:340px;"></div>
+          </div>
+          <span style="font-size:15px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:18px 38px;border-radius:999px;">Je fais un don</span>
+        </div>
+
+        <!-- footer -->
+        <div style="padding:48px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;background:#F7F7F9;">
+          <div>
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:14px;"><span style="font-family:'Archivo';font-weight:900;font-size:22px;color:#F2C20D;">G</span><span style="font-weight:800;font-size:13px;letter-spacing:0.04em;">GRAPHISME ENSEMBLE</span></div>
+            <div style="height:9px;border-radius:4px;background:#DEDEE2;width:80%;margin-bottom:8px;"></div>
+            <div style="height:9px;border-radius:4px;background:#DEDEE2;width:55%;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:11px;"><div style="height:9px;width:60%;background:#DEDEE2;border-radius:4px;"></div><div style="height:9px;width:70%;background:#E8E8EC;border-radius:4px;"></div><div style="height:9px;width:50%;background:#E8E8EC;border-radius:4px;"></div></div>
+          <div style="display:flex;flex-direction:column;gap:11px;"><div style="height:9px;width:60%;background:#DEDEE2;border-radius:4px;"></div><div style="height:9px;width:70%;background:#E8E8EC;border-radius:4px;"></div><div style="height:9px;width:50%;background:#E8E8EC;border-radius:4px;"></div></div>
+          <div style="display:flex;flex-direction:column;gap:11px;"><div style="height:9px;width:60%;background:#DEDEE2;border-radius:4px;"></div><div style="height:9px;width:70%;background:#E8E8EC;border-radius:4px;"></div><div style="height:9px;width:50%;background:#E8E8EC;border-radius:4px;"></div></div>
+        </div>
+
+      </div>
+      </sc-if>
+
+      <!-- ============================================================ -->
+      <!-- DIRECTION B — CHALEUREUX & ACCUEILLANT                       -->
+      <!-- ============================================================ -->
+      <sc-if value="{{ isB }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#FBFAF7;color:#33312C;">
+
+        <!-- nav -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'Archivo';font-weight:900;font-size:28px;color:#E9B021;">G</span>
+            <span style="font-weight:700;font-size:15px;">Graphisme Ensemble</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:28px;">
+            <span style="font-size:14px;color:#5C5950;">L'association</span>
+            <span style="font-size:14px;color:#5C5950;">Galerie</span>
+            <span style="font-size:14px;color:#5C5950;">Contact</span>
+            <span style="font-size:13px;font-weight:700;color:#fff;background:#E9B021;padding:11px 22px;border-radius:999px;">Faire un don</span>
+          </div>
+        </div>
+
+        <!-- hero image + overlay card -->
+        <div style="position:relative;padding:18px 48px 0;">
+          <span style="position:absolute;top:-6px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C5BFAE;">❶ Hero — photo + carte mission</span>
+          <div style="position:relative;border-radius:24px;overflow:hidden;height:440px;background:#E4DFD2;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Caveat',cursive;font-size:24px;color:#B5AE9A;">photo grand format — atelier / participants</span>
+            <div style="position:absolute;left:40px;bottom:40px;max-width:460px;background:#fff;border-radius:18px;padding:34px;box-shadow:0 24px 50px -20px rgba(0,0,0,0.25);">
+              <h1 style="margin:0 0 16px;font-weight:800;font-size:34px;line-height:1.15;color:#33312C;">Créer ensemble,<br>partager partout.</h1>
+              <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;">
+                <div style="height:10px;border-radius:4px;background:#E4DFD2;width:100%;"></div>
+                <div style="height:10px;border-radius:4px;background:#E4DFD2;width:80%;"></div>
+              </div>
+              <div style="display:flex;gap:12px;">
+                <span style="font-size:14px;font-weight:700;color:#fff;background:#E9B021;padding:13px 24px;border-radius:999px;">Nous soutenir</span>
+                <span style="font-size:14px;font-weight:600;color:#33312C;border:1px solid #DAD3C2;padding:13px 24px;border-radius:999px;">Nos actions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mission intro centré -->
+        <div style="position:relative;padding:72px 48px;text-align:center;">
+          <span style="position:absolute;top:18px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C5BFAE;">❷ Mission</span>
+          <div style="max-width:720px;margin:0 auto;">
+            <span style="font-size:12px;font-weight:700;letter-spacing:0.16em;color:#E9B021;">NOTRE MISSION</span>
+            <h2 style="margin:14px 0 18px;font-weight:800;font-size:30px;line-height:1.2;">Démocratiser les arts graphiques</h2>
+            <div style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+              <div style="height:11px;border-radius:5px;background:#E4DFD2;width:90%;"></div>
+              <div style="height:11px;border-radius:5px;background:#E4DFD2;width:78%;"></div>
+              <div style="height:11px;border-radius:5px;background:#E4DFD2;width:60%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- nos actions cards -->
+        <div style="position:relative;padding:8px 48px 64px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
+          <span style="position:absolute;top:-26px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C5BFAE;">❸ Nos actions — cartes</span>
+          <div style="background:#fff;border:1px solid #ECE7DA;border-radius:20px;padding:30px;">
+            <div style="width:52px;height:52px;border-radius:14px;background:#FBEFD2;margin-bottom:20px;"></div>
+            <div style="font-weight:700;font-size:19px;margin-bottom:12px;">Ateliers créatifs</div>
+            <div style="display:flex;flex-direction:column;gap:8px;"><div style="height:9px;border-radius:4px;background:#EBE6D8;width:100%;"></div><div style="height:9px;border-radius:4px;background:#EBE6D8;width:75%;"></div></div>
+          </div>
+          <div style="background:#fff;border:1px solid #ECE7DA;border-radius:20px;padding:30px;">
+            <div style="width:52px;height:52px;border-radius:14px;background:#FBEFD2;margin-bottom:20px;"></div>
+            <div style="font-weight:700;font-size:19px;margin-bottom:12px;">Projets collaboratifs</div>
+            <div style="display:flex;flex-direction:column;gap:8px;"><div style="height:9px;border-radius:4px;background:#EBE6D8;width:100%;"></div><div style="height:9px;border-radius:4px;background:#EBE6D8;width:70%;"></div></div>
+          </div>
+          <div style="background:#fff;border:1px solid #ECE7DA;border-radius:20px;padding:30px;">
+            <div style="width:52px;height:52px;border-radius:14px;background:#FBEFD2;margin-bottom:20px;"></div>
+            <div style="font-weight:700;font-size:19px;margin-bottom:12px;">Ressources pédagogiques</div>
+            <div style="display:flex;flex-direction:column;gap:8px;"><div style="height:9px;border-radius:4px;background:#EBE6D8;width:100%;"></div><div style="height:9px;border-radius:4px;background:#EBE6D8;width:72%;"></div></div>
+          </div>
+        </div>
+
+        <!-- chiffres clés -->
+        <div style="position:relative;background:#33312C;color:#fff;padding:56px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#6E6A5E;">❹ Chiffres clés</span>
+          <div><div style="font-weight:900;font-size:42px;color:#E9B021;">120+</div><div style="font-size:13px;color:#C7C2B4;margin-top:6px;">ateliers animés</div></div>
+          <div><div style="font-weight:900;font-size:42px;color:#E9B021;">8</div><div style="font-size:13px;color:#C7C2B4;margin-top:6px;">quartiers partenaires</div></div>
+          <div><div style="font-weight:900;font-size:42px;color:#E9B021;">1 500</div><div style="font-size:13px;color:#C7C2B4;margin-top:6px;">participants</div></div>
+          <div><div style="font-weight:900;font-size:42px;color:#E9B021;">100%</div><div style="font-size:13px;color:#C7C2B4;margin-top:6px;">accès gratuit</div></div>
+        </div>
+
+        <!-- galerie grille régulière -->
+        <div style="position:relative;padding:64px 48px;">
+          <span style="position:absolute;top:18px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C5BFAE;">❺ Galerie</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:24px;">
+            <h2 style="margin:0;font-weight:800;font-size:30px;">Nos réalisations</h2>
+            <span style="font-size:14px;font-weight:600;color:#9A7A18;">Tout voir →</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+            <div style="aspect-ratio:4/3;background:#E4DFD2;border-radius:16px;"></div>
+            <div style="aspect-ratio:4/3;background:#E4DFD2;border-radius:16px;"></div>
+            <div style="aspect-ratio:4/3;background:#E4DFD2;border-radius:16px;"></div>
+          </div>
+        </div>
+
+        <!-- don warm card -->
+        <div style="position:relative;padding:8px 48px 72px;">
+          <span style="position:absolute;top:-22px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C5BFAE;">❻ Appel au don</span>
+          <div style="background:#FBEFD2;border-radius:24px;padding:48px;text-align:center;max-width:760px;margin:0 auto;">
+            <h2 style="margin:0 0 14px;font-weight:800;font-size:30px;color:#33312C;">Soutenez l'accès à la création</h2>
+            <div style="height:11px;border-radius:5px;background:#EAD9A8;width:70%;margin:0 auto 24px;"></div>
+            <div style="height:12px;border-radius:999px;background:#EAD9A8;overflow:hidden;margin-bottom:8px;"><div style="height:100%;width:62%;background:#E9B021;border-radius:999px;"></div></div>
+            <div style="font-size:13px;color:#8A7A50;margin-bottom:24px;">6 200 € collectés sur 10 000 €</div>
+            <span style="display:inline-block;font-size:15px;font-weight:700;color:#fff;background:#E9B021;padding:16px 40px;border-radius:999px;">Je fais un don</span>
+          </div>
+        </div>
+
+        <!-- footer + newsletter -->
+        <div style="padding:44px 48px;background:#33312C;color:#C7C2B4;display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:32px;align-items:start;">
+          <div><div style="display:flex;align-items:baseline;gap:8px;margin-bottom:12px;"><span style="font-family:'Archivo';font-weight:900;font-size:22px;color:#E9B021;">G</span><span style="font-weight:700;font-size:13px;color:#fff;">Graphisme Ensemble</span></div><div style="height:9px;width:75%;background:#4A4840;border-radius:4px;"></div></div>
+          <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:9px;width:60%;background:#4A4840;border-radius:4px;"></div><div style="height:9px;width:50%;background:#403E37;border-radius:4px;"></div></div>
+          <div><div style="font-size:13px;color:#fff;margin-bottom:12px;">Recevez nos actualités</div><div style="display:flex;gap:8px;"><div style="flex:1;height:42px;border-radius:999px;background:#403E37;"></div><div style="width:110px;height:42px;border-radius:999px;background:#E9B021;"></div></div></div>
+        </div>
+
+      </div>
+      </sc-if>
+
+      <!-- ============================================================ -->
+      <!-- DIRECTION C — ARTY / ÉDITORIAL                               -->
+      <!-- ============================================================ -->
+      <sc-if value="{{ isC }}" hint-placeholder-val="{{ true }}">
+      <div style="background:#fff;color:#1A1A1A;">
+
+        <!-- nav éditorial -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:26px 56px;border-bottom:1px solid #1A1A1A;">
+          <span style="font-family:'DM Serif Display',serif;font-size:24px;">Graphisme Ensemble</span>
+          <div style="display:flex;align-items:center;gap:30px;font-size:13px;letter-spacing:0.04em;">
+            <span>L'ASSOCIATION</span>
+            <span>GALERIE</span>
+            <span>CONTACT</span>
+            <span style="border-bottom:2px solid #F2C20D;padding-bottom:3px;">FAIRE UN DON →</span>
+          </div>
+        </div>
+
+        <!-- hero editorial -->
+        <div style="position:relative;padding:64px 56px 56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0C0C0;">❶ Hero — titre display + vignettes</span>
+          <div>
+            <div style="font-size:12px;letter-spacing:0.2em;color:#9A9A9A;margin-bottom:24px;">ÉD. 2026 — ARTS GRAPHIQUES POUR TOUS</div>
+            <h1 style="margin:0;font-family:'DM Serif Display',serif;font-size:74px;line-height:0.98;letter-spacing:-0.01em;">Donner<br>à voir,<br><span style="font-style:italic;color:#9A7A00;">à tous.</span></h1>
+            <div style="display:flex;flex-direction:column;gap:10px;margin:32px 0 0;max-width:380px;">
+              <div style="height:11px;border-radius:3px;background:#E6E6E6;width:100%;"></div>
+              <div style="height:11px;border-radius:3px;background:#E6E6E6;width:72%;"></div>
+            </div>
+          </div>
+          <div style="position:relative;height:440px;">
+            <div style="position:absolute;top:0;right:0;width:64%;height:300px;background:#E6E6E6;border-radius:6px;"></div>
+            <div style="position:absolute;bottom:0;left:0;width:54%;height:260px;background:#1A1A1A;border-radius:6px;display:flex;align-items:flex-end;padding:16px;"><span style="font-family:'Caveat',cursive;color:#7A7A7A;font-size:16px;">image</span></div>
+            <div style="position:absolute;top:54%;right:8%;width:30%;height:120px;background:#F2C20D;border-radius:6px;"></div>
+          </div>
+        </div>
+
+        <!-- galerie magazine (vedette) -->
+        <div style="position:relative;padding:56px 56px;border-top:1px solid #1A1A1A;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0C0C0;">❷ Galerie en vedette</span>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:30px;"><h2 style="margin:0;font-family:'DM Serif Display',serif;font-size:38px;">Travaux choisis</h2><span style="font-size:13px;letter-spacing:0.04em;color:#9A9A9A;">— 24 PROJETS</span></div>
+          <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:18px;">
+            <div style="grid-column:span 7;"><div style="height:300px;background:#E6E6E6;border-radius:6px;margin-bottom:12px;"></div><div style="display:flex;justify-content:space-between;font-size:13px;"><span style="font-weight:600;">Fresque collective</span><span style="color:#9A9A9A;">01</span></div></div>
+            <div style="grid-column:span 5;"><div style="height:300px;background:#E6E6E6;border-radius:6px;margin-bottom:12px;"></div><div style="display:flex;justify-content:space-between;font-size:13px;"><span style="font-weight:600;">Atelier sérigraphie</span><span style="color:#9A9A9A;">02</span></div></div>
+            <div style="grid-column:span 4;"><div style="height:220px;background:#E6E6E6;border-radius:6px;margin-bottom:12px;"></div><div style="display:flex;justify-content:space-between;font-size:13px;"><span style="font-weight:600;">Identité visuelle</span><span style="color:#9A9A9A;">03</span></div></div>
+            <div style="grid-column:span 4;"><div style="height:220px;background:#E6E6E6;border-radius:6px;margin-bottom:12px;"></div><div style="display:flex;justify-content:space-between;font-size:13px;"><span style="font-weight:600;">Illustration jeunesse</span><span style="color:#9A9A9A;">04</span></div></div>
+            <div style="grid-column:span 4;"><div style="height:220px;background:#E6E6E6;border-radius:6px;margin-bottom:12px;"></div><div style="display:flex;justify-content:space-between;font-size:13px;"><span style="font-weight:600;">Affiche associative</span><span style="color:#9A9A9A;">05</span></div></div>
+          </div>
+        </div>
+
+        <!-- mission pull-quote -->
+        <div style="position:relative;padding:80px 56px;border-top:1px solid #1A1A1A;display:grid;grid-template-columns:0.25fr 0.75fr;gap:40px;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0C0C0;">❸ Mission — citation éditoriale</span>
+          <div style="font-size:12px;letter-spacing:0.16em;color:#9A9A9A;">NOTRE MISSION</div>
+          <div>
+            <p style="margin:0;font-family:'DM Serif Display',serif;font-size:36px;line-height:1.28;">« Faire du design visuel un <span style="font-style:italic;">levier de lien social</span>, d'insertion et d'expression citoyenne. »</p>
+          </div>
+        </div>
+
+        <!-- don inline élégant -->
+        <div style="position:relative;padding:48px 56px;border-top:1px solid #1A1A1A;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0C0C0;">❹ Appel au don</span>
+          <h2 style="margin:0;font-family:'DM Serif Display',serif;font-size:34px;max-width:560px;">Soutenir une création accessible à tous.</h2>
+          <span style="font-size:14px;font-weight:700;letter-spacing:0.04em;color:#1A1A1A;background:#F2C20D;padding:16px 34px;border-radius:2px;">FAIRE UN DON →</span>
+        </div>
+
+        <!-- footer minimal -->
+        <div style="padding:48px 56px;border-top:1px solid #1A1A1A;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;">
+          <span style="font-family:'DM Serif Display',serif;font-size:46px;line-height:0.9;">Graphisme<br>Ensemble</span>
+          <div style="display:flex;gap:40px;font-size:13px;color:#6A6A6A;">
+            <div style="display:flex;flex-direction:column;gap:8px;"><span>Association loi 1901</span><span>Mentions légales</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;"><span>Instagram</span><span>Contact</span></div>
+          </div>
+        </div>
+
+      </div>
+      </sc-if>
+
+      <!-- ============================================================ -->
+      <!-- DIRECTION M — MÉLANGE A + B                                  -->
+      <!-- ============================================================ -->
+      <sc-if value="{{ isM }}">
+      <div style="background:#FBFAF7;color:#1C1C1E;">
+
+        <!-- nav : logo bold (A) + bouton arrondi (B) -->
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:22px 48px;border-bottom:1px solid #EDEDEF;">
+          <div style="display:flex;align-items:baseline;gap:10px;">
+            <span style="font-family:'Archivo';font-weight:900;font-size:30px;line-height:1;color:#F2C20D;">G</span>
+            <span style="font-weight:800;font-size:15px;letter-spacing:0.04em;">GRAPHISME ENSEMBLE</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:30px;">
+            <span style="font-size:14px;font-weight:600;color:#5C5A56;">Qui sommes-nous</span>
+            <span style="font-size:14px;font-weight:600;color:#5C5A56;">Galerie</span>
+            <span style="font-size:14px;font-weight:600;color:#5C5A56;">Contact</span>
+            <span style="font-size:13px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:12px 22px;border-radius:999px;">Faire un don</span>
+          </div>
+        </div>
+
+        <!-- hero : sombre (A) + photo chaude + carte (B) -->
+        <div style="position:relative;background:#1C1C1E;padding:64px 48px 72px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:48px;align-items:center;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#5A5A5E;">❶ Hero — typo massive (A) + photo chaude (B)</span>
+          <div>
+            <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:20px;">ASSOCIATION LOI 1901</span>
+            <h1 style="margin:0;color:#fff;font-weight:900;font-size:62px;line-height:0.98;letter-spacing:-0.02em;">Le graphisme,<br>un bien <span style="color:#F2C20D;">commun.</span></h1>
+            <div style="display:flex;flex-direction:column;gap:10px;margin:28px 0 34px;max-width:420px;">
+              <div style="height:12px;border-radius:5px;background:#3A3A3E;width:100%;"></div>
+              <div style="height:12px;border-radius:5px;background:#3A3A3E;width:82%;"></div>
+              <div style="height:12px;border-radius:5px;background:#3A3A3E;width:60%;"></div>
+            </div>
+            <div style="display:flex;gap:14px;">
+              <span style="font-size:14px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:15px 28px;border-radius:999px;">Soutenir l'association</span>
+              <span style="font-size:14px;font-weight:700;color:#fff;border:1px solid #4A4A4E;padding:15px 28px;border-radius:999px;">Nos projets</span>
+            </div>
+          </div>
+          <!-- photo chaude arrondie (B) avec petite carte blanche par-dessus -->
+          <div style="position:relative;">
+            <div style="width:100%;aspect-ratio:4/3;border-radius:20px;background:#2E2A22;display:flex;align-items:center;justify-content:center;">
+              <span style="font-family:'Caveat',cursive;font-size:22px;color:#6A6460;">photo — atelier / participants</span>
+            </div>
+            <div style="position:absolute;bottom:-20px;left:20px;right:20px;background:#fff;border-radius:14px;padding:18px 22px;box-shadow:0 16px 40px -14px rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:space-between;gap:16px;">
+              <div>
+                <div style="font-weight:800;font-size:15px;margin-bottom:4px;">120+ ateliers</div>
+                <div style="font-size:12px;color:#7A7A7A;">depuis 2018</div>
+              </div>
+              <div style="width:1px;height:36px;background:#EDEDEF;"></div>
+              <div>
+                <div style="font-weight:800;font-size:15px;margin-bottom:4px;">1 500 participants</div>
+                <div style="font-size:12px;color:#7A7A7A;">toutes générations</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- manifeste : typo bold (A) -->
+        <div style="position:relative;padding:80px 48px 64px;border-bottom:1px solid #EDEDEF;">
+          <span style="position:absolute;top:18px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0BFBA;">❷ Manifeste — typo forte (A)</span>
+          <p style="margin:0;font-weight:800;font-size:34px;line-height:1.25;letter-spacing:-0.01em;max-width:920px;">Démocratiser les arts graphiques, le design visuel et l'illustration — comme leviers de <span style="background:#F2C20D;padding:2px 6px;">lien social</span> et d'expression citoyenne.</p>
+        </div>
+
+        <!-- actions : cartes (B) numérotées (A) -->
+        <div style="position:relative;padding:64px 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px;border-bottom:1px solid #EDEDEF;">
+          <span style="position:absolute;top:18px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0BFBA;">❸ Nos actions — cartes arrondies + numéros (A+B)</span>
+          <div style="background:#fff;border:1px solid #ECE7DA;border-radius:20px;padding:30px;">
+            <div style="font-family:'Archivo';font-weight:900;font-size:28px;color:#F2C20D;margin-bottom:14px;">01</div>
+            <div style="font-weight:800;font-size:19px;margin-bottom:14px;">Ateliers créatifs</div>
+            <div style="display:flex;flex-direction:column;gap:9px;"><div style="height:10px;border-radius:4px;background:#EBE6D8;width:100%;"></div><div style="height:10px;border-radius:4px;background:#EBE6D8;width:74%;"></div></div>
+          </div>
+          <div style="background:#fff;border:1px solid #ECE7DA;border-radius:20px;padding:30px;">
+            <div style="font-family:'Archivo';font-weight:900;font-size:28px;color:#F2C20D;margin-bottom:14px;">02</div>
+            <div style="font-weight:800;font-size:19px;margin-bottom:14px;">Projets collaboratifs</div>
+            <div style="display:flex;flex-direction:column;gap:9px;"><div style="height:10px;border-radius:4px;background:#EBE6D8;width:100%;"></div><div style="height:10px;border-radius:4px;background:#EBE6D8;width:68%;"></div></div>
+          </div>
+          <div style="background:#fff;border:1px solid #ECE7DA;border-radius:20px;padding:30px;">
+            <div style="font-family:'Archivo';font-weight:900;font-size:28px;color:#F2C20D;margin-bottom:14px;">03</div>
+            <div style="font-weight:800;font-size:19px;margin-bottom:14px;">Ressources pédagogiques</div>
+            <div style="display:flex;flex-direction:column;gap:9px;"><div style="height:10px;border-radius:4px;background:#EBE6D8;width:100%;"></div><div style="height:10px;border-radius:4px;background:#EBE6D8;width:72%;"></div></div>
+          </div>
+        </div>
+
+        <!-- stats : bande sombre (A) chiffres clés (B) -->
+        <div style="position:relative;background:#1C1C1E;color:#fff;padding:56px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+          <span style="position:absolute;top:14px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#6A6A6E;">❹ Chiffres clés — bande sombre (A) + stats (B)</span>
+          <div><div style="font-weight:900;font-size:44px;color:#F2C20D;">120+</div><div style="font-size:13px;color:#B0B0AA;margin-top:6px;">ateliers animés</div></div>
+          <div><div style="font-weight:900;font-size:44px;color:#F2C20D;">8</div><div style="font-size:13px;color:#B0B0AA;margin-top:6px;">quartiers partenaires</div></div>
+          <div><div style="font-weight:900;font-size:44px;color:#F2C20D;">1 500</div><div style="font-size:13px;color:#B0B0AA;margin-top:6px;">participants</div></div>
+          <div><div style="font-weight:900;font-size:44px;color:#F2C20D;">100%</div><div style="font-size:13px;color:#B0B0AA;margin-top:6px;">accès gratuit</div></div>
+        </div>
+
+        <!-- galerie mosaïque (A) -->
+        <div style="position:relative;padding:64px 48px;border-bottom:1px solid #EDEDEF;">
+          <span style="position:absolute;top:18px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0BFBA;">❺ Galerie — mosaïque asymétrique (A)</span>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:26px;">
+            <h2 style="margin:0;font-weight:900;font-size:32px;letter-spacing:-0.01em;">Nos réalisations</h2>
+            <span style="font-size:14px;font-weight:700;border-bottom:2px solid #F2C20D;padding-bottom:3px;">Voir la galerie →</span>
+          </div>
+          <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:16px;">
+            <div style="grid-row:span 2;background:#DCDCE0;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Caveat',cursive;color:#9A9A9F;font-size:20px;">image</div>
+            <div style="background:#DCDCE0;border-radius:14px;"></div>
+            <div style="background:#DCDCE0;border-radius:14px;"></div>
+            <div style="background:#DCDCE0;border-radius:14px;"></div>
+            <div style="background:#DCDCE0;border-radius:14px;"></div>
+          </div>
+        </div>
+
+        <!-- don : jauge chaude (B) + typo bold (A) -->
+        <div style="position:relative;padding:64px 48px;background:#FBFAF7;">
+          <span style="position:absolute;top:18px;left:18px;font-family:'Caveat',cursive;font-size:17px;color:#C0BFBA;">❻ Appel au don — carte chaude + jauge (B) + titre fort (A)</span>
+          <div style="background:#1C1C1E;border-radius:24px;padding:56px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+            <div>
+              <h2 style="margin:0 0 12px;color:#fff;font-weight:900;font-size:38px;letter-spacing:-0.01em;max-width:440px;">Chaque don ouvre un atelier.</h2>
+              <div style="height:11px;border-radius:5px;background:#3A3A3E;width:340px;margin-bottom:28px;"></div>
+              <div style="height:12px;border-radius:999px;background:#3A3A3E;overflow:hidden;width:340px;margin-bottom:8px;"><div style="height:100%;width:62%;background:#F2C20D;border-radius:999px;"></div></div>
+              <div style="font-size:13px;color:#8A8A8E;">6 200 € collectés sur 10 000 €</div>
+            </div>
+            <span style="flex:none;font-size:15px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:18px 40px;border-radius:999px;">Je fais un don</span>
+          </div>
+        </div>
+
+        <!-- footer : multi-colonnes (A) + newsletter (B) -->
+        <div style="padding:48px;background:#1C1C1E;color:#A8A8AA;display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:32px;align-items:start;">
+          <div>
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:14px;"><span style="font-family:'Archivo';font-weight:900;font-size:22px;color:#F2C20D;">G</span><span style="font-weight:800;font-size:13px;letter-spacing:0.04em;color:#fff;">GRAPHISME ENSEMBLE</span></div>
+            <div style="height:9px;border-radius:4px;background:#3A3A3E;width:80%;margin-bottom:8px;"></div>
+            <div style="height:9px;border-radius:4px;background:#3A3A3E;width:55%;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:9px;width:60%;background:#3A3A3E;border-radius:4px;"></div><div style="height:9px;width:70%;background:#2E2E32;border-radius:4px;"></div><div style="height:9px;width:50%;background:#2E2E32;border-radius:4px;"></div></div>
+          <div style="display:flex;flex-direction:column;gap:10px;"><div style="height:9px;width:60%;background:#3A3A3E;border-radius:4px;"></div><div style="height:9px;width:70%;background:#2E2E32;border-radius:4px;"></div><div style="height:9px;width:50%;background:#2E2E32;border-radius:4px;"></div></div>
+          <div><div style="font-size:13px;color:#fff;margin-bottom:12px;">Recevez nos actualités</div><div style="display:flex;gap:8px;"><div style="flex:1;height:42px;border-radius:999px;background:#2E2E32;"></div><div style="width:100px;height:42px;border-radius:999px;background:#F2C20D;"></div></div></div>
+        </div>
+
+      </div>
+      </sc-if>
+
+    </div>
+
+    <!-- annotation footer -->
+    <p style="margin:20px 4px 0;font-family:'Caveat',cursive;font-size:18px;color:#9A9A9F;">Wireframes basse-fidélité · gris + un rappel de la couleur dorée du logo pour situer la marque. Les blocs gris = images / photos à fournir, les barres = textes à rédiger.</p>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 'a' };
+
+  tabStyle(on) {
+    return {
+      border: 'none',
+      cursor: 'pointer',
+      fontFamily: "'Archivo', sans-serif",
+      fontSize: '13px',
+      fontWeight: 700,
+      padding: '9px 16px',
+      borderRadius: '999px',
+      background: on ? '#1C1C1E' : 'transparent',
+      color: on ? '#fff' : '#5A5A5E',
+      transition: 'all 0.15s ease',
+    };
+  }
+
+  renderVals() {
+    const tab = this.state.tab || 'a';
+    const desc = {
+      a: "Direction A — Audacieux & graphique. Hero sombre, typographie massive et asymétrie, rappel doré sur les appels à l'action. Pose l'association comme un acteur affirmé et contemporain des arts graphiques.",
+      b: "Direction B — Chaleureux & accueillant. Photo grand format, cartes arrondies, chiffres clés et bloc de dons avec jauge de collecte. Met en avant l'humain, l'impact et la proximité.",
+      c: "Direction C — Arty / éditorial. La galerie est la vedette : mise en page magazine, grands blancs, titres en serif display et numérotation. Valorise la qualité créative et le regard.",
+      m: "Mélange A+B — Le meilleur des deux directions : hero sombre + photo chaude, manifeste en typo massive, cartes arrondies numérotées, chiffres clés en bande noire, galerie asymétrique, bloc de don avec jauge. Fort et chaleureux.",
+    }[tab];
+
+    return {
+      isA: tab === 'a',
+      isB: tab === 'b',
+      isC: tab === 'c',
+      isM: tab === 'm',
+      notA: tab !== 'a',
+      notB: tab !== 'b',
+      notC: tab !== 'c',
+      notM: tab !== 'm',
+      desc,
+      selA: () => this.setState({ tab: 'a' }),
+      selB: () => this.setState({ tab: 'b' }),
+      selC: () => this.setState({ tab: 'c' }),
+      selM: () => this.setState({ tab: 'm' }),
+    };
+  }
+}
+</script>
+</body>
+</html>

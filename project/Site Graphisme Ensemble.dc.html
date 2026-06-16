@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+</style>
+</helmet>
+
+<div style="font-family:'Archivo',system-ui,sans-serif;color:#1C1C1E;background:#fff;min-height:100vh;">
+
+  <!-- ═══ NAV ═══ -->
+  <div style="position:sticky;top:0;z-index:100;background:#FBFAF7;border-bottom:1px solid #E8E8EA;">
+    <div style="max-width:1280px;margin:0 auto;padding:0 56px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:40px;">
+      <div onClick="{{ goAccueil }}" style="cursor:pointer;flex:none;">
+        <img src="uploads/Graphisme.png" style="height:36px;width:auto;display:block;" alt="Graphisme Ensemble">
+      </div>
+      <div style="display:flex;align-items:center;gap:36px;">
+        <span onClick="{{ goAccueil }}" style="font-size:14px;font-weight:600;color:#1C1C1E;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          Accueil
+          <sc-if value="{{ isAccueil }}" hint-placeholder-val="{{ true }}"><span style="display:block;height:2px;width:100%;background:#F2C20D;border-radius:1px;"></span></sc-if>
+        </span>
+        <span onClick="{{ goAbout }}" style="font-size:14px;font-weight:600;color:#1C1C1E;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          Qui sommes-nous
+          <sc-if value="{{ isAbout }}"><span style="display:block;height:2px;width:100%;background:#F2C20D;border-radius:1px;"></span></sc-if>
+        </span>
+        <span onClick="{{ goGalerie }}" style="font-size:14px;font-weight:600;color:#1C1C1E;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          Galerie
+          <sc-if value="{{ isGalerie }}"><span style="display:block;height:2px;width:100%;background:#F2C20D;border-radius:1px;"></span></sc-if>
+        </span>
+        <span onClick="{{ goContact }}" style="font-size:14px;font-weight:600;color:#1C1C1E;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:3px;">
+          Contact
+          <sc-if value="{{ isContact }}"><span style="display:block;height:2px;width:100%;background:#F2C20D;border-radius:1px;"></span></sc-if>
+        </span>
+      </div>
+      <span onClick="{{ goDon }}" style="flex:none;font-size:13px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:13px 24px;border-radius:999px;cursor:pointer;">Faire un don</span>
+    </div>
+  </div>
+
+  <!-- ═══ ACCUEIL ═══ -->
+  <sc-if value="{{ isAccueil }}" hint-placeholder-val="{{ true }}">
+  <div>
+
+    <div style="background:#1C1C1E;padding:88px 56px 96px;">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+        <div>
+          <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:24px;">ASSOCIATION LOI 1901</span>
+          <h1 style="margin:0 0 24px;color:#fff;font-weight:900;font-size:68px;line-height:0.96;letter-spacing:-0.025em;">Le graphisme,<br>un bien <span style="color:#F2C20D;">commun.</span></h1>
+          <p style="margin:0 0 40px;color:#9A9A9F;font-size:17px;line-height:1.7;max-width:440px;">Graphisme Ensemble démocratise les arts graphiques, le design visuel et l'illustration pour rendre la création accessible à toutes et tous.</p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <span onClick="{{ goDon }}" style="font-size:14px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:16px 32px;border-radius:999px;cursor:pointer;">Soutenir l'association</span>
+            <span onClick="{{ goAbout }}" style="font-size:14px;font-weight:700;color:#fff;border:1.5px solid #3A3A3E;padding:16px 32px;border-radius:999px;cursor:pointer;">Découvrir nos actions</span>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <div style="width:100%;aspect-ratio:4/3;border-radius:24px;background:#2A2A2D;display:flex;align-items:center;justify-content:center;">
+            <span style="font-family:'Caveat',cursive;font-size:20px;color:#5A5A5E;">photo — atelier / participants</span>
+          </div>
+          <div style="position:absolute;bottom:-24px;left:24px;right:24px;background:#fff;border-radius:16px;padding:20px 28px;box-shadow:0 20px 50px -16px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:space-around;gap:16px;">
+            <div style="text-align:center;"><div style="font-weight:900;font-size:28px;line-height:1;">120+</div><div style="font-size:12px;color:#9A9A9F;margin-top:3px;">ateliers animés</div></div>
+            <div style="width:1px;height:40px;background:#E8E8EA;"></div>
+            <div style="text-align:center;"><div style="font-weight:900;font-size:28px;line-height:1;">1 500</div><div style="font-size:12px;color:#9A9A9F;margin-top:3px;">participant·es</div></div>
+            <div style="width:1px;height:40px;background:#E8E8EA;"></div>
+            <div style="text-align:center;"><div style="font-weight:900;font-size:28px;line-height:1;">100%</div><div style="font-size:12px;color:#9A9A9F;margin-top:3px;">accès gratuit</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FBFAF7;padding:88px 56px;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <p style="margin:0;font-weight:800;font-size:36px;line-height:1.28;letter-spacing:-0.015em;max-width:940px;">Nous rendons les arts graphiques, le design visuel et l'illustration <span style="background:#F2C20D;padding:2px 8px;border-radius:4px;">accessibles au plus grand nombre</span>, comme leviers de lien social, d'insertion et d'expression citoyenne.</p>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:88px 56px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:52px;flex-wrap:wrap;gap:20px;">
+          <div>
+            <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:12px;">CE QUE NOUS FAISONS</span>
+            <h2 style="margin:0;font-weight:900;font-size:40px;letter-spacing:-0.015em;">Rejoignez le mouvement</h2>
+          </div>
+          <span onClick="{{ goAbout }}" style="font-size:14px;font-weight:700;cursor:pointer;border-bottom:2px solid #F2C20D;padding-bottom:3px;">En savoir plus →</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:36px;">
+            <div style="font-weight:900;font-size:36px;color:#F2C20D;margin-bottom:18px;">01</div>
+            <h3 style="margin:0 0 14px;font-weight:800;font-size:21px;">Ateliers créatifs</h3>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Typo, illustration, identité visuelle... Nos ateliers encadrés sont ouverts à toutes et tous, sans prérequis, au cœur de vos quartiers.</p>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:36px;">
+            <div style="font-weight:900;font-size:36px;color:#F2C20D;margin-bottom:18px;">02</div>
+            <h3 style="margin:0 0 14px;font-weight:800;font-size:21px;">Projets collaboratifs</h3>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Nous co-créons avec des associations, des écoles et des collectivités pour produire des visuels qui donnent à voir leurs engagements.</p>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:36px;">
+            <div style="font-weight:900;font-size:36px;color:#F2C20D;margin-bottom:18px;">03</div>
+            <h3 style="margin:0 0 14px;font-weight:800;font-size:21px;">Ressources pédagogiques</h3>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Fiches pratiques, tutoriels et kits créatifs librement téléchargeables pour apprendre le graphisme en autonomie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1C1C1E;padding:72px 56px;">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+        <div><div style="font-weight:900;font-size:52px;color:#F2C20D;line-height:1;">120+</div><div style="font-size:14px;color:#8A8A8F;margin-top:8px;">ateliers animés</div></div>
+        <div><div style="font-weight:900;font-size:52px;color:#F2C20D;line-height:1;">8</div><div style="font-size:14px;color:#8A8A8F;margin-top:8px;">quartiers partenaires</div></div>
+        <div><div style="font-weight:900;font-size:52px;color:#F2C20D;line-height:1;">1 500</div><div style="font-size:14px;color:#8A8A8F;margin-top:8px;">participant·es touché·es</div></div>
+        <div><div style="font-weight:900;font-size:52px;color:#F2C20D;line-height:1;">100%</div><div style="font-size:14px;color:#8A8A8F;margin-top:8px;">accès gratuit</div></div>
+      </div>
+    </div>
+
+    <div style="background:#FBFAF7;padding:88px 56px;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:20px;">
+          <div>
+            <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:12px;">NOS RÉALISATIONS</span>
+            <h2 style="margin:0;font-weight:900;font-size:40px;letter-spacing:-0.015em;">Un aperçu de nos projets</h2>
+          </div>
+          <span onClick="{{ goGalerie }}" style="font-size:14px;font-weight:700;cursor:pointer;border-bottom:2px solid #F2C20D;padding-bottom:3px;">Voir toute la galerie →</span>
+        </div>
+        <div style="display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:220px 220px;gap:16px;">
+          <div style="grid-row:span 2;background:#DCDCE0;border-radius:18px;display:flex;align-items:center;justify-content:center;"><span style="font-family:'Caveat',cursive;font-size:18px;color:#AEAEB2;">image</span></div>
+          <div style="background:#D0D0D5;border-radius:18px;"></div>
+          <div style="background:#E2DDD5;border-radius:18px;"></div>
+          <div style="background:#D4D4DA;border-radius:18px;"></div>
+          <div style="background:#D8D3CA;border-radius:18px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FBFAF7;padding:0 56px 88px;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <div style="background:#1C1C1E;border-radius:28px;padding:64px;display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap;">
+          <div>
+            <h2 style="margin:0 0 14px;color:#fff;font-weight:900;font-size:42px;letter-spacing:-0.02em;max-width:500px;">Chaque don ouvre un atelier.</h2>
+            <p style="margin:0 0 28px;color:#8A8A8F;font-size:15px;max-width:420px;">Votre soutien nous permet de financer les matériaux, rémunérer les intervenant·es et développer nos ressources.</p>
+            <div style="height:10px;border-radius:999px;background:#3A3A3E;max-width:360px;overflow:hidden;margin-bottom:8px;"><div style="height:100%;width:62%;background:#F2C20D;border-radius:999px;"></div></div>
+            <div style="font-size:13px;color:#6A6A6E;">6 200 € collectés sur 10 000 €</div>
+          </div>
+          <div style="flex:none;text-align:center;">
+            <span onClick="{{ goDon }}" style="display:inline-block;font-size:15px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:20px 44px;border-radius:999px;cursor:pointer;">Je fais un don</span>
+            <div style="margin-top:12px;font-size:12px;color:#5A5A5E;">Sécurisé via HelloAsso</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </sc-if>
+
+
+  <!-- ═══ QUI SOMMES-NOUS ═══ -->
+  <sc-if value="{{ isAbout }}">
+  <div>
+
+    <div style="background:#FBFAF7;padding:88px 56px 80px;">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+        <div>
+          <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:16px;">QUI SOMMES-NOUS</span>
+          <h1 style="margin:0 0 24px;font-weight:900;font-size:52px;line-height:1.05;letter-spacing:-0.02em;">Une association au service du graphisme pour tous.</h1>
+          <p style="margin:0;font-size:17px;line-height:1.75;color:#5C5A56;max-width:480px;">Fondée en 2018, Graphisme Ensemble est une association loi 1901 basée en Île-de-France. Notre équipe de bénévoles et de graphistes professionnel·les œuvre chaque jour pour rendre les arts graphiques accessibles à toutes et tous.</p>
+        </div>
+        <div style="height:420px;background:#DCDCE0;border-radius:24px;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:'Caveat',cursive;font-size:20px;color:#AEAEB2;">photo — équipe / atelier</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1C1C1E;padding:80px 56px;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:24px;">NOTRE MISSION</span>
+        <div style="margin:0;color:#fff;font-weight:800;font-size:38px;line-height:1.3;letter-spacing:-0.015em;max-width:900px;border-left:4px solid #F2C20D;padding-left:32px;">« Faire du design visuel un levier de lien social, d'insertion et d'expression citoyenne au sein de la communauté. »</div>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:88px 56px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">NOS VALEURS</span>
+        <h2 style="margin:0 0 52px;font-weight:900;font-size:40px;letter-spacing:-0.015em;">Ce en quoi nous croyons</h2>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:36px;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;"></div>
+            <h3 style="margin:0 0 12px;font-weight:800;font-size:20px;">Accessibilité</h3>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Tous nos ateliers sont gratuits et ouverts sans condition de niveau. Nous agissons là où les ressources culturelles manquent.</p>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:36px;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;"></div>
+            <h3 style="margin:0 0 12px;font-weight:800;font-size:20px;">Créativité collective</h3>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Nous croyons en la force du faire ensemble. Chaque projet naît d'une collaboration entre participant·es, bénévoles et partenaires.</p>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:36px;">
+            <div style="width:48px;height:48px;border-radius:14px;background:#FDF3C8;margin-bottom:22px;"></div>
+            <h3 style="margin:0 0 12px;font-weight:800;font-size:20px;">Impact social</h3>
+            <p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Le graphisme est un outil d'émancipation. Nous mesurons notre réussite à la capacité de chacun·e à prendre la parole visuellement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FBFAF7;padding:88px 56px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">NOTRE HISTOIRE</span>
+        <h2 style="margin:0 0 56px;font-weight:900;font-size:40px;letter-spacing:-0.015em;">Quelques jalons</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid #E8E8EA;padding-top:40px;">
+          <div style="padding-right:32px;">
+            <div style="font-weight:900;font-size:32px;color:#F2C20D;margin-bottom:12px;">2018</div>
+            <div style="margin:0 0 10px;font-weight:700;font-size:16px;">Fondation</div>
+            <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Création par un collectif de graphistes engagé·es avec la volonté de rendre la création accessible à tous.</p>
+          </div>
+          <div style="padding:0 32px;border-left:1px solid #E8E8EA;">
+            <div style="font-weight:900;font-size:32px;color:#F2C20D;margin-bottom:12px;">2020</div>
+            <div style="margin:0 0 10px;font-weight:700;font-size:16px;">Premiers ateliers</div>
+            <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Lancement du premier cycle d'ateliers dans deux centres sociaux en Île-de-France.</p>
+          </div>
+          <div style="padding:0 32px;border-left:1px solid #E8E8EA;">
+            <div style="font-weight:900;font-size:32px;color:#F2C20D;margin-bottom:12px;">2022</div>
+            <div style="margin:0 0 10px;font-weight:700;font-size:16px;">Développement</div>
+            <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Partenariats avec 8 structures locales, publication des premières ressources pédagogiques en ligne.</p>
+          </div>
+          <div style="padding-left:32px;border-left:1px solid #E8E8EA;">
+            <div style="font-weight:900;font-size:32px;color:#F2C20D;margin-bottom:12px;">2024</div>
+            <div style="margin:0 0 10px;font-weight:700;font-size:16px;">Expansion</div>
+            <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Plus de 1 500 participant·es touché·es, déploiement dans de nouveaux territoires en Île-de-France.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:88px 56px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">L'ÉQUIPE</span>
+        <h2 style="margin:0 0 52px;font-weight:900;font-size:40px;letter-spacing:-0.015em;">Des personnes engagées</h2>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:32px;text-align:center;">
+            <div style="width:80px;height:80px;border-radius:999px;background:#DCDCE0;margin:0 auto 18px;"></div>
+            <div style="font-weight:700;font-size:16px;margin-bottom:4px;">Marie D.</div>
+            <div style="font-size:13px;color:#9A9A9F;">Présidente</div>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:32px;text-align:center;">
+            <div style="width:80px;height:80px;border-radius:999px;background:#DCDCE0;margin:0 auto 18px;"></div>
+            <div style="font-weight:700;font-size:16px;margin-bottom:4px;">Karim L.</div>
+            <div style="font-size:13px;color:#9A9A9F;">Directeur artistique</div>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:32px;text-align:center;">
+            <div style="width:80px;height:80px;border-radius:999px;background:#DCDCE0;margin:0 auto 18px;"></div>
+            <div style="font-weight:700;font-size:16px;margin-bottom:4px;">Sophie M.</div>
+            <div style="font-size:13px;color:#9A9A9F;">Coordinatrice</div>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:22px;padding:32px;text-align:center;">
+            <div style="width:80px;height:80px;border-radius:999px;background:#DCDCE0;margin:0 auto 18px;"></div>
+            <div style="font-weight:700;font-size:16px;margin-bottom:4px;">Thomas R.</div>
+            <div style="font-size:13px;color:#9A9A9F;">Bénévole référent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#1C1C1E;padding:80px 56px;">
+      <div style="max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;">
+        <div>
+          <h2 style="margin:0 0 12px;color:#fff;font-weight:900;font-size:40px;letter-spacing:-0.02em;">Rejoignez l'association</h2>
+          <p style="margin:0;color:#8A8A8F;font-size:16px;max-width:480px;">Adhérent·e, bénévole, partenaire — toutes les formes d'engagement sont les bienvenues.</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <span onClick="{{ goContact }}" style="font-size:14px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:16px 32px;border-radius:999px;cursor:pointer;">Adhérer</span>
+          <span onClick="{{ goContact }}" style="font-size:14px;font-weight:700;color:#fff;border:1.5px solid #3A3A3E;padding:16px 32px;border-radius:999px;cursor:pointer;">Devenir bénévole</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </sc-if>
+
+
+  <!-- ═══ GALERIE ═══ -->
+  <sc-if value="{{ isGalerie }}">
+  <div>
+
+    <div style="background:#FBFAF7;padding:72px 56px 56px;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">NOS RÉALISATIONS</span>
+        <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
+          <h1 style="margin:0;font-weight:900;font-size:52px;letter-spacing:-0.02em;line-height:1.05;">Galerie de projets</h1>
+          <p style="margin:0;font-size:16px;color:#5C5A56;max-width:380px;line-height:1.65;">Ateliers, fresques, identités visuelles, affiches… Une sélection de créations issues de nos projets collectifs.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+          <span style="font-size:13px;font-weight:700;color:#1C1C1E;background:#F2C20D;padding:9px 18px;border-radius:999px;cursor:pointer;">Tous</span>
+          <span style="font-size:13px;font-weight:600;color:#5C5A56;background:#fff;border:1px solid #E8E8EA;padding:9px 18px;border-radius:999px;cursor:pointer;">Ateliers</span>
+          <span style="font-size:13px;font-weight:600;color:#5C5A56;background:#fff;border:1px solid #E8E8EA;padding:9px 18px;border-radius:999px;cursor:pointer;">Projets collaboratifs</span>
+          <span style="font-size:13px;font-weight:600;color:#5C5A56;background:#fff;border:1px solid #E8E8EA;padding:9px 18px;border-radius:999px;cursor:pointer;">Affiches</span>
+          <span style="font-size:13px;font-weight:600;color:#5C5A56;background:#fff;border:1px solid #E8E8EA;padding:9px 18px;border-radius:999px;cursor:pointer;">Identités visuelles</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:40px 56px 88px;">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <div style="border-radius:18px;overflow:hidden;background:#DCDCE0;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Fresque collective — Atelier 2024</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#D0D0D5;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Identité visuelle — Association locale</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#E2DDD5;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Affiche — Fête de quartier 2023</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#D4D4DA;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Sérigraphie — Atelier jeunesse</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#DCDCE0;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Illustration — Livret pédagogique</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#D8D3CA;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Signalétique — Centre social</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#D0CFC6;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Typo expérimentale — Atelier adultes</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#D6D6DB;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Carte postale — Collection 2024</div></div></div>
+        <div style="border-radius:18px;overflow:hidden;background:#E0DCDC;aspect-ratio:4/3;display:flex;align-items:flex-end;"><div style="padding:16px;width:100%;"><div style="font-weight:700;font-size:14px;color:#1C1C1E;background:rgba(255,255,255,0.92);padding:10px 14px;border-radius:10px;">Mural — Projet participatif 2023</div></div></div>
+      </div>
+      <div style="max-width:1280px;margin:40px auto 0;text-align:center;">
+        <span style="display:inline-block;font-size:14px;font-weight:700;border:1.5px solid #E8E8EA;padding:15px 36px;border-radius:999px;cursor:pointer;">Charger plus de projets</span>
+      </div>
+    </div>
+
+  </div>
+  </sc-if>
+
+
+  <!-- ═══ FAIRE UN DON ═══ -->
+  <sc-if value="{{ isDon }}">
+  <div>
+
+    <div style="background:#1C1C1E;padding:88px 56px;">
+      <div style="max-width:960px;margin:0 auto;text-align:center;">
+        <span style="display:inline-block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:20px;">FAIRE UN DON</span>
+        <h1 style="margin:0 0 20px;color:#fff;font-weight:900;font-size:60px;line-height:1.02;letter-spacing:-0.025em;">Votre soutien rend possible<br>la création pour tous.</h1>
+        <p style="margin:0;color:#8A8A8F;font-size:17px;line-height:1.7;max-width:560px;margin-left:auto;margin-right:auto;">Graphisme Ensemble fonctionne grâce à la générosité de ses donateurs. Chaque euro contribue directement à financer nos ateliers et ressources.</p>
+      </div>
+    </div>
+
+    <div style="background:#FBFAF7;padding:80px 56px;">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;">
+        <div>
+          <h2 style="margin:0 0 28px;font-weight:900;font-size:34px;letter-spacing:-0.015em;">Pourquoi nous soutenir ?</h2>
+          <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:40px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="flex:none;width:32px;height:32px;border-radius:999px;background:#FDF3C8;margin-top:2px;"></div>
+              <div><div style="font-weight:700;font-size:15px;margin-bottom:4px;">Financer les matériaux</div><p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Papiers, encres, supports numériques — tout ce qui permet à chacun·e de créer sans frais.</p></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="flex:none;width:32px;height:32px;border-radius:999px;background:#FDF3C8;margin-top:2px;"></div>
+              <div><div style="font-weight:700;font-size:15px;margin-bottom:4px;">Rémunérer les intervenant·es</div><p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Nos ateliers sont animés par des graphistes professionnel·les dont nous reconnaissons le travail.</p></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="flex:none;width:32px;height:32px;border-radius:999px;background:#FDF3C8;margin-top:2px;"></div>
+              <div><div style="font-weight:700;font-size:15px;margin-bottom:4px;">Développer les ressources en ligne</div><p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Tutoriels, fiches pratiques et kits créatifs librement accessibles à toutes et tous.</p></div>
+            </div>
+          </div>
+          <div style="background:#fff;border:1px solid #E8E8EA;border-radius:18px;padding:28px;">
+            <p style="margin:0 0 12px;font-size:15px;line-height:1.75;color:#5C5A56;font-style:italic;">« Grâce à cet atelier, j'ai réalisé ma première affiche. C'est la première fois que je pense à ce que je veux dire visuellement. »</p>
+            <div style="font-weight:700;font-size:14px;">— Participante, atelier 2023</div>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid #E8E8EA;border-radius:24px;padding:40px;">
+          <h3 style="margin:0 0 8px;font-weight:900;font-size:26px;letter-spacing:-0.01em;">Choisissez votre montant</h3>
+          <p style="margin:0 0 28px;font-size:14px;color:#9A9A9F;">Don unique ou mensuel — 100% sécurisé via HelloAsso</p>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px;">
+            <div style="border:2px solid #F2C20D;background:#FDF3C8;border-radius:14px;padding:18px;text-align:center;cursor:pointer;"><div style="font-weight:900;font-size:22px;">10 €</div><div style="font-size:12px;color:#7A7A7A;margin-top:3px;">1 kit pédagogique</div></div>
+            <div style="border:1.5px solid #E8E8EA;border-radius:14px;padding:18px;text-align:center;cursor:pointer;"><div style="font-weight:900;font-size:22px;">25 €</div><div style="font-size:12px;color:#7A7A7A;margin-top:3px;">1 séance d'atelier</div></div>
+            <div style="border:1.5px solid #E8E8EA;border-radius:14px;padding:18px;text-align:center;cursor:pointer;"><div style="font-weight:900;font-size:22px;">50 €</div><div style="font-size:12px;color:#7A7A7A;margin-top:3px;">1 cycle complet</div></div>
+            <div style="border:1.5px solid #E8E8EA;border-radius:14px;padding:18px;text-align:center;cursor:pointer;"><div style="font-weight:900;font-size:22px;">Autre</div><div style="font-size:12px;color:#7A7A7A;margin-top:3px;">Montant libre</div></div>
+          </div>
+          <div style="background:#F4F4F6;border-radius:12px;padding:14px 20px;margin-bottom:24px;display:flex;align-items:center;gap:12px;cursor:pointer;">
+            <div style="width:22px;height:22px;border-radius:6px;border:2px solid #F2C20D;background:#FDF3C8;flex:none;"></div>
+            <span style="font-size:14px;font-weight:600;">Don mensuel (déductible à 66%)</span>
+          </div>
+          <div style="height:8px;border-radius:999px;background:#F0F0F2;overflow:hidden;margin-bottom:8px;"><div style="height:100%;width:62%;background:#F2C20D;border-radius:999px;"></div></div>
+          <div style="display:flex;justify-content:space-between;font-size:13px;color:#9A9A9F;margin-bottom:28px;"><span>6 200 € collectés</span><span>Objectif : 10 000 €</span></div>
+          <a href="https://www.helloasso.com" target="_blank" rel="noopener noreferrer" style="display:block;text-align:center;font-size:15px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:18px 32px;border-radius:999px;text-decoration:none;">Je fais un don via HelloAsso</a>
+          <div style="margin-top:12px;text-align:center;font-size:12px;color:#9A9A9F;">Paiement sécurisé · Reçu fiscal automatique</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:80px 56px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">TRANSPARENCE</span>
+        <h2 style="margin:0 0 48px;font-weight:900;font-size:38px;letter-spacing:-0.015em;">À quoi servent vos dons ?</h2>
+        <div style="display:flex;flex-direction:column;gap:22px;max-width:720px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-weight:700;font-size:15px;">Matériaux et fournitures</span><span style="font-weight:800;font-size:15px;color:#F2C20D;">45%</span></div>
+            <div style="height:8px;border-radius:999px;background:#F0F0F2;overflow:hidden;"><div style="height:100%;width:45%;background:#F2C20D;border-radius:999px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-weight:700;font-size:15px;">Rémunération des intervenant·es</span><span style="font-weight:800;font-size:15px;color:#F2C20D;">35%</span></div>
+            <div style="height:8px;border-radius:999px;background:#F0F0F2;overflow:hidden;"><div style="height:100%;width:35%;background:#F2C20D;border-radius:999px;"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;margin-bottom:8px;"><span style="font-weight:700;font-size:15px;">Ressources et communication</span><span style="font-weight:800;font-size:15px;color:#F2C20D;">20%</span></div>
+            <div style="height:8px;border-radius:999px;background:#F0F0F2;overflow:hidden;"><div style="height:100%;width:20%;background:#F2C20D;border-radius:999px;"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </sc-if>
+
+
+  <!-- ═══ CONTACT ═══ -->
+  <sc-if value="{{ isContact }}">
+  <div>
+
+    <div style="background:#FBFAF7;padding:72px 56px 56px;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">CONTACT</span>
+        <h1 style="margin:0 0 16px;font-weight:900;font-size:52px;letter-spacing:-0.02em;line-height:1.05;">Entrons en contact</h1>
+        <p style="margin:0;font-size:17px;line-height:1.7;color:#5C5A56;max-width:500px;">Questions, partenariats, adhésion, bénévolat — nous répondons à tous les messages sous 48h.</p>
+      </div>
+    </div>
+
+    <div style="background:#fff;padding:64px 56px 88px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:64px;align-items:start;">
+        <div>
+          <h2 style="margin:0 0 36px;font-weight:800;font-size:28px;letter-spacing:-0.01em;">Envoyez-nous un message</h2>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+              <div><div style="display:block;font-size:13px;font-weight:700;margin-bottom:8px;">Prénom et nom</div><div style="height:48px;border:1.5px solid #E8E8EA;border-radius:12px;background:#FBFAF7;"></div></div>
+              <div><div style="display:block;font-size:13px;font-weight:700;margin-bottom:8px;">Adresse e-mail</div><div style="height:48px;border:1.5px solid #E8E8EA;border-radius:12px;background:#FBFAF7;"></div></div>
+            </div>
+            <div><div style="display:block;font-size:13px;font-weight:700;margin-bottom:8px;">Sujet</div><div style="height:48px;border:1.5px solid #E8E8EA;border-radius:12px;background:#FBFAF7;"></div></div>
+            <div><div style="display:block;font-size:13px;font-weight:700;margin-bottom:8px;">Message</div><div style="height:148px;border:1.5px solid #E8E8EA;border-radius:12px;background:#FBFAF7;"></div></div>
+            <span style="display:inline-block;align-self:flex-start;font-size:14px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:16px 36px;border-radius:999px;cursor:pointer;">Envoyer le message</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:32px;">
+          <div>
+            <h3 style="margin:0 0 16px;font-weight:700;font-size:18px;">Coordonnées</h3>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div style="font-size:15px;color:#5C5A56;"><span style="font-weight:700;color:#1C1C1E;display:block;margin-bottom:2px;">E-mail</span>contact@graphisme-ensemble.org</div>
+              <div style="font-size:15px;color:#5C5A56;"><span style="font-weight:700;color:#1C1C1E;display:block;margin-bottom:2px;">Adresse</span>12 rue de la Commune, 93000 Bobigny</div>
+            </div>
+          </div>
+          <div>
+            <h3 style="margin:0 0 16px;font-weight:700;font-size:18px;">Réseaux sociaux</h3>
+            <div style="display:flex;flex-direction:column;gap:11px;">
+              <span style="font-size:14px;font-weight:600;cursor:pointer;">Instagram — @graphismeensemble</span>
+              <span style="font-size:14px;font-weight:600;cursor:pointer;">Facebook — Graphisme Ensemble</span>
+              <span style="font-size:14px;font-weight:600;cursor:pointer;">LinkedIn — Graphisme Ensemble</span>
+            </div>
+          </div>
+          <div style="background:#FBFAF7;border:1px solid #E8E8EA;border-radius:18px;padding:24px;">
+            <div style="margin:0 0 8px;font-weight:700;font-size:15px;">Vous souhaitez adhérer ?</div>
+            <p style="margin:0 0 14px;font-size:14px;color:#5C5A56;line-height:1.65;">L'adhésion annuelle est libre de 5 à 30 €. Précisez-le dans votre message et nous vous envoyons le bulletin.</p>
+            <span style="font-size:13px;font-weight:700;border-bottom:2px solid #F2C20D;padding-bottom:2px;cursor:pointer;">En savoir plus →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#FBFAF7;padding:72px 56px;border-top:1px solid #E8E8EA;">
+      <div style="max-width:1280px;margin:0 auto;">
+        <span style="display:block;font-size:12px;font-weight:700;letter-spacing:0.18em;color:#F2C20D;margin-bottom:14px;">FAQ</span>
+        <h2 style="margin:0 0 44px;font-weight:900;font-size:38px;letter-spacing:-0.015em;">Questions fréquentes</h2>
+        <div style="max-width:800px;">
+          <div style="padding:28px 0;border-top:1px solid #E8E8EA;"><div style="font-weight:700;font-size:17px;margin-bottom:12px;">Comment puis-je proposer un atelier ?</div><p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Nous accueillons toujours de nouveaux·elles intervenant·es graphistes. Envoyez-nous un message via le formulaire en décrivant votre profil et vos idées. Nous vous répondrons rapidement.</p></div>
+          <div style="padding:28px 0;border-top:1px solid #E8E8EA;"><div style="font-weight:700;font-size:17px;margin-bottom:12px;">Les ateliers sont-ils vraiment gratuits ?</div><p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Oui, absolument. Graphisme Ensemble s'engage à ce que tous ses ateliers soient accessibles sans frais. C'est le cœur de notre mission, rendu possible par les dons et nos partenariats institutionnels.</p></div>
+          <div style="padding:28px 0;border-top:1px solid #E8E8EA;border-bottom:1px solid #E8E8EA;"><div style="font-weight:700;font-size:17px;margin-bottom:12px;">Comment devenir partenaire de l'association ?</div><p style="margin:0;font-size:15px;line-height:1.75;color:#5C5A56;">Collectivités, entreprises, centres sociaux, écoles... nous travaillons avec tout type de structure partageant nos valeurs. Contactez-nous pour échanger sur un partenariat sur mesure.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </sc-if>
+
+
+  <!-- ═══ FOOTER ═══ -->
+  <div style="background:#1C1C1E;color:#8A8A8F;padding:64px 56px 40px;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:40px;margin-bottom:56px;">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:18px;"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:#F2C20D;">G</span><span style="font-weight:800;font-size:13px;letter-spacing:0.05em;color:#fff;">GRAPHISME ENSEMBLE</span></div>
+          <p style="margin:0 0 18px;font-size:14px;line-height:1.75;max-width:280px;">Association loi 1901 qui démocratise les arts graphiques, le design visuel et l'illustration.</p>
+          <div style="font-size:12px;font-weight:600;letter-spacing:0.08em;color:#5A5A5E;">SIREN : 000 000 000</div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:13px;letter-spacing:0.06em;color:#fff;margin-bottom:18px;">NAVIGATION</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <span onClick="{{ goAccueil }}" style="font-size:14px;cursor:pointer;">Accueil</span>
+            <span onClick="{{ goAbout }}" style="font-size:14px;cursor:pointer;">Qui sommes-nous</span>
+            <span onClick="{{ goGalerie }}" style="font-size:14px;cursor:pointer;">Galerie</span>
+            <span onClick="{{ goDon }}" style="font-size:14px;cursor:pointer;">Faire un don</span>
+            <span onClick="{{ goContact }}" style="font-size:14px;cursor:pointer;">Contact</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:13px;letter-spacing:0.06em;color:#fff;margin-bottom:18px;">CONTACT</div>
+          <div style="display:flex;flex-direction:column;gap:12px;font-size:14px;">
+            <span>contact@graphisme-ensemble.org</span>
+            <span>12 rue de la Commune<br>93000 Bobigny</span>
+            <div style="display:flex;gap:14px;margin-top:4px;">
+              <span style="cursor:pointer;">Instagram</span>
+              <span style="cursor:pointer;">Facebook</span>
+              <span style="cursor:pointer;">LinkedIn</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:13px;letter-spacing:0.06em;color:#fff;margin-bottom:18px;">ACTUALITÉS</div>
+          <p style="margin:0 0 16px;font-size:14px;line-height:1.65;">Recevez nos nouvelles ateliers et projets.</p>
+          <div style="display:flex;gap:8px;">
+            <div style="flex:1;height:44px;border-radius:999px;background:#2A2A2E;border:1px solid #3A3A3E;"></div>
+            <span style="flex:none;font-size:13px;font-weight:800;color:#1C1C1E;background:#F2C20D;padding:0 20px;border-radius:999px;display:flex;align-items:center;cursor:pointer;">OK</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #2A2A2E;padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;">
+        <span>© 2026 Graphisme Ensemble — Association loi 1901</span>
+        <div style="display:flex;gap:24px;">
+          <span style="cursor:pointer;">Mentions légales</span>
+          <span style="cursor:pointer;">Politique de confidentialité</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'accueil' };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.page !== this.state.page) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  renderVals() {
+    const p = this.state.page;
+    return {
+      isAccueil:  p === 'accueil',
+      isAbout:    p === 'about',
+      isGalerie:  p === 'galerie',
+      isDon:      p === 'don',
+      isContact:  p === 'contact',
+      goAccueil:  () => this.setState({ page: 'accueil' }),
+      goAbout:    () => this.setState({ page: 'about' }),
+      goGalerie:  () => this.setState({ page: 'galerie' }),
+      goDon:      () => this.setState({ page: 'don' }),
+      goContact:  () => this.setState({ page: 'contact' }),
+    };
+  }
+}
+</script>
+</body>
+</html>
