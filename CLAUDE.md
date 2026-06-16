@@ -47,6 +47,8 @@ Déployé sur Netlify, repo GitHub : https://github.com/emeric-H974/graphisme-en
 - [ ] **Photos équipe** : cercles gris à remplacer par des images générées "personne incognito"
   → l'utilisateur s'en charge (génération externe)
 - [ ] **Galerie** : 9 projets fictifs avec fonds gris → remplacer par les vraies réalisations
+- [ ] **Filtres galerie** : temporairement supprimés (peu de contenu). À remettre quand la galerie
+  sera suffisamment remplie (catégories : Ateliers, Projets collaboratifs, Affiches, Identités visuelles)
 - [ ] **SIREN** : non applicable pour l'instant (pas d'activité commerciale/salariés)
   → à ajouter si l'association embauche ou développe des activités économiques
 
