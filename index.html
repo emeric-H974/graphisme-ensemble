@@ -95,6 +95,21 @@
     .newsletter-input::placeholder { color: #5A5A5E; }
     .newsletter-input:focus { border-color: #F2C20D; }
 
+    /* Hamburger */
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: #1C1C1E; border-radius: 2px; transition: transform .22s, opacity .22s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile menu */
+    .nav-mobile { display: none; border-top: 1px solid #E8E8EA; background: #FBFAF7; }
+    .nav-mobile.open { display: block; }
+    .nav-mobile-inner { padding: 8px 24px 24px; display: flex; flex-direction: column; }
+    .nav-mobile-btn { font-size: 16px; font-weight: 600; color: #1C1C1E; cursor: pointer; padding: 16px 0; border: none; border-bottom: 1px solid #E8E8EA; text-align: left; font-family: inherit; width: 100%; background: none; }
+    .nav-mobile-don { display: block; width: 100%; text-align: center; font-size: 15px; font-weight: 800; color: #1C1C1E; background: #F2C20D; padding: 16px; border-radius: 999px; cursor: pointer; margin-top: 20px; font-family: inherit; border: none; transition: background .2s; }
+    .nav-mobile-don:hover { background: #e0b20c; }
+
     /* Responsive */
     @media (max-width: 1024px) {
       .nav-inner { padding: 0 32px; }
@@ -102,6 +117,8 @@
     }
     @media (max-width: 768px) {
       .nav-links { display: none; }
+      .btn-don { display: none; }
+      .nav-hamburger { display: flex; }
       .nav-inner { padding: 0 24px; }
       .hero-grid { grid-template-columns: 1fr !important; }
       .two-col { grid-template-columns: 1fr !important; }
@@ -140,6 +157,18 @@
       </button>
     </div>
     <button class="btn-don" onclick="showPage('don')">Faire un don</button>
+    <button class="nav-hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <div class="nav-mobile-inner">
+      <button class="nav-mobile-btn" onclick="showPage('accueil')">Accueil</button>
+      <button class="nav-mobile-btn" onclick="showPage('about')">Qui sommes-nous</button>
+      <button class="nav-mobile-btn" onclick="showPage('galerie')">Galerie</button>
+      <button class="nav-mobile-btn" onclick="showPage('contact')">Contact</button>
+      <button class="nav-mobile-don" onclick="showPage('don')">Faire un don</button>
+    </div>
   </div>
 </nav>
 
@@ -817,8 +846,21 @@
   // ── Protection images ──
   document.addEventListener('contextmenu', e => e.preventDefault());
 
+  // ── Mobile nav ──
+  function toggleNav() {
+    const menu = document.getElementById('nav-mobile');
+    const btn = document.querySelector('.nav-hamburger');
+    menu.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeNav() {
+    document.getElementById('nav-mobile').classList.remove('open');
+    document.querySelector('.nav-hamburger').classList.remove('open');
+  }
+
   // ── Page navigation ──
   function showPage(page) {
+    closeNav();
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const target = document.getElementById('page-' + page);
     if (target) target.classList.add('active');
