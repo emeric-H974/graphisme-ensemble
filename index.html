@@ -24,6 +24,7 @@
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 56px; height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .nav-logo { flex: none; cursor: pointer; }
     .nav-logo img { height: 36px; width: auto; display: block; }
+    img { -webkit-user-drag: none; user-select: none; }
     .nav-links { display: flex; align-items: center; gap: 36px; }
     .nav-link { font-size: 14px; font-weight: 600; color: #1C1C1E; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 3px; }
     .nav-underline { display: block; height: 2px; width: 100%; background: #F2C20D; border-radius: 1px; opacity: 0; }
@@ -813,6 +814,9 @@
 
 
 <script>
+  // ── Protection images ──
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
   // ── Page navigation ──
   function showPage(page) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
