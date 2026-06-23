@@ -131,6 +131,9 @@
       .mosaique-main { grid-row: auto !important; }
       .manifeste-text { font-size: 22px !important; }
       .stat-number { font-size: 36px !important; }
+      .equipe-photo { height: auto !important; aspect-ratio: 4/3; }
+      .mission-quote { font-size: 22px !important; border-left: none !important; padding-left: 0 !important; border-top: 4px solid #F2C20D; padding-top: 20px !important; }
+      .timeline-item { border-left: none !important; border-top: 1px solid #E8E8EA; padding: 24px 0 0 !important; }
       .don-cta-box { padding: 36px !important; flex-direction: column !important; align-items: center !important; }
       .don-cta-title { font-size: 28px !important; }
       .don-cta-btn { width: 100%; }
@@ -314,7 +317,7 @@
         <h1 style="margin:0 0 24px;font-weight:900;font-size:52px;line-height:1.05;letter-spacing:-.02em;">Une association au service du graphisme pour tous.</h1>
         <p style="margin:0;font-size:17px;line-height:1.75;color:#5C5A56;max-width:480px;">Fondée en 2024, Graphisme Ensemble est une association loi 1901 basée à La Réunion. Notre équipe de bénévoles et de graphistes professionnel·les œuvre chaque jour pour rendre les arts graphiques accessibles à toutes et tous.</p>
       </div>
-      <img src="project/uploads/equipe-photo.jpg" style="width:100%;height:420px;border-radius:24px;object-fit:cover;display:block;" alt="Équipe Graphisme Ensemble">
+      <img src="project/uploads/equipe-photo.jpg" class="equipe-photo" style="width:100%;height:420px;border-radius:24px;object-fit:cover;display:block;" alt="Équipe Graphisme Ensemble">
     </div>
   </section>
 
@@ -322,7 +325,7 @@
   <section style="background:#1C1C1E;padding:80px 56px;" class="section-pad">
     <div style="max-width:1280px;margin:0 auto;">
       <span class="tag" style="margin-bottom:24px;">NOTRE MISSION</span>
-      <p style="margin:0;color:#fff;font-weight:800;font-size:38px;line-height:1.3;letter-spacing:-.015em;max-width:900px;border-left:4px solid #F2C20D;padding-left:32px;">« Faire du design visuel un levier de lien social, d'insertion et d'expression citoyenne au sein de la communauté. »</p>
+      <p class="mission-quote" style="margin:0;color:#fff;font-weight:800;font-size:38px;line-height:1.3;letter-spacing:-.015em;max-width:900px;border-left:4px solid #F2C20D;padding-left:32px;">« Faire du design visuel un levier de lien social, d'insertion et d'expression citoyenne au sein de la communauté. »</p>
     </div>
   </section>
 
@@ -382,12 +385,12 @@
           <div style="font-weight:700;font-size:16px;margin-bottom:10px;">Fondation & premiers ateliers</div>
           <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Création par un collectif de graphistes engagé·es avec la volonté de rendre la création accessible à tous. Lancement du premier cycle d'ateliers dans deux quartiers de l'est de La Réunion.</p>
         </div>
-        <div style="padding:0 32px;border-left:1px solid #E8E8EA;">
+        <div class="timeline-item" style="padding:0 32px;border-left:1px solid #E8E8EA;">
           <div style="font-weight:900;font-size:32px;color:#F2C20D;margin-bottom:12px;">2025</div>
           <div style="font-weight:700;font-size:16px;margin-bottom:10px;">Développement</div>
           <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Partenariats avec 4 structures locales, extension des ateliers à de nouveaux quartiers de l'île.</p>
         </div>
-        <div style="padding-left:32px;border-left:1px solid #E8E8EA;">
+        <div class="timeline-item" style="padding-left:32px;border-left:1px solid #E8E8EA;">
           <div style="font-weight:900;font-size:32px;color:#F2C20D;margin-bottom:12px;">2026</div>
           <div style="font-weight:700;font-size:16px;margin-bottom:10px;">Expansion</div>
           <p style="margin:0;font-size:14px;line-height:1.75;color:#5C5A56;">Plus de 500+ participant·es touché·es, déploiement vers de nouvelles communes de l'île.</p>
